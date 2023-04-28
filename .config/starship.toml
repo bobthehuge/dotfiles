@@ -25,5 +25,5 @@ disabled = false
 
 # Prompt: param 2 └─
 [character]
-success_symbol = " [╰─ﱦ ](bold red)"
-error_symbol = " [╰─ﱦ ](bold red)"
+success_symbol = " [╰─>](bold red)"
+error_symbol = " [╰─>](bold red)"
