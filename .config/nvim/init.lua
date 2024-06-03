@@ -1,21 +1,17 @@
-require "core"
+require("core.keymaps")
+require("core.plugins")
+require("core.plugin_config")
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+require('nvim_comment').setup()
 
-if custom_init_path then
-  dofile(custom_init_path)
-end
-
-require("core.utils").load_mappings()
-
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
-
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
+vim.cmd([[set rnu]])
+vim.cmd([[set nu]])
+vim.cmd([[set cmdheight=0]])
+vim.cmd([[set tabstop=4]])
+vim.cmd([[set shiftwidth=4]])
+vim.cmd([[set softtabstop=4]])
+vim.cmd([[set list]])
+vim.cmd([[set listchars=tab:>-]])
+vim.cmd([[set expandtab]])
+vim.cmd([[set autoindent]])
+vim.cmd([[set smartindent]])

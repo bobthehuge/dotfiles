@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1697570247137315-1</unique-id>
+	<command>st -e tmux</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Thunar</name>
+	<submenu></submenu>
+	<unique-id>1715090110625923-1</unique-id>
+	<command>thunar %d</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Helix</name>
+	<submenu></submenu>
+	<unique-id>1715090163547634-3</unique-id>
+	<command>st -e hx %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Mupdf</name>
+	<submenu></submenu>
+	<unique-id>1715090192721380-4</unique-id>
+	<command>mupdf %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*.pdf</patterns>
+</action>
+<action>
+	<icon></icon>
+	<name>Nomacs</name>
+	<submenu></submenu>
+	<unique-id>1715090206762618-5</unique-id>
+	<command>nomacs %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Vlc</name>
+	<submenu></submenu>
+	<unique-id>1715090225886269-6</unique-id>
+	<command>vlc %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<video-files/>
+</action>
+</actions>

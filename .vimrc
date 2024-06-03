@@ -4,9 +4,11 @@ call plug#begin()
 
     Plug 'preservim/nerdtree'
     Plug 'morhetz/gruvbox'
+    Plug 'sainnhe/gruvbox-material'
     Plug 'tpope/vim-commentary'
     Plug 'joshdick/onedark.vim'
     Plug 'sheerun/vim-polyglot'
+    Plug 'vv9k/bogster'
 
 call plug#end()
 
@@ -18,7 +20,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-set termguicolors
+" set termguicolors
 set relativenumber
 set number
 set background=dark
@@ -28,11 +30,14 @@ set list
 set listchars=tab:>-
 
 let g:colorcolumn_state=0
+let g:gruvbox_material_background='hard'
+let g:gruvbox_material_better_performance=1
 
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 autocmd VimEnter * loadview
 autocmd VimLeave * mkview
+autocmd BufRead,BufNewFile ~/prog/68k/*.asm set syntax=asm68k
 
 def ColorColumnToggle()
     if g:colorcolumn_state == 0
