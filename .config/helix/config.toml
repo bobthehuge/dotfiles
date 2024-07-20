@@ -1,10 +1,27 @@
-theme = "gruvbox"
+theme = "vim_dark_high_contrast"
 
 [editor]
 true-color = true
 line-number = "relative"
 rulers = [80]
-text-width = 80
+text-width = 79
+auto-pairs = false
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+# space = "·"
+space = " "
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+# tabpad = "·" # Tabs will look like "→···" (depending on tab width)
 
 [editor.statusline]
 left = ["mode", "spinner"]
@@ -16,7 +33,7 @@ mode.insert = "INSERT"
 mode.select = "SELECT"
 
 [editor.cursor-shape]
-insert = "bar"
+insert = "underline"
 normal = "block"
 select = "underline"
 
@@ -27,10 +44,11 @@ render = true
 [editor.file-picker]
 parents = false
 
-[editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 0
+wrap-at-text-width = true
+
+[editor.smart-tab]
+enable = false

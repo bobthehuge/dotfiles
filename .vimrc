@@ -33,7 +33,7 @@ let g:colorcolumn_state=0
 let g:gruvbox_material_background='hard'
 let g:gruvbox_material_better_performance=1
 
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
 
 autocmd VimEnter * loadview
 autocmd VimLeave * mkview
