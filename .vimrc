@@ -3,12 +3,8 @@ set nocompatible
 call plug#begin()
 
     Plug 'preservim/nerdtree'
-    Plug 'morhetz/gruvbox'
-    Plug 'sainnhe/gruvbox-material'
     Plug 'tpope/vim-commentary'
-    Plug 'joshdick/onedark.vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'vv9k/bogster'
 
 call plug#end()
 
