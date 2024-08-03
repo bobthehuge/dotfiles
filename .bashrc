@@ -16,6 +16,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:$RAYLIB_PATH"lib"
 export TERM='xterm-256color'
 export EDITOR='hx'
 export RUST_BACKTRACE=1
+export I3CONFIG=".config/i3/config"
 
 alias ls='ls -aoh --color=auto'
 alias pwdless="PS1='\[\e[38;5;124m\]\u\[\e[0m\]\\$ '"
