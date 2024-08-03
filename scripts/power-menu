@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+flags=""
+rofi -show power-menu -modi power-menu:~/scripts/rofi-power-menu/rofi-power-menu.sh $flags
