@@ -3,7 +3,7 @@ name = "rust"
 language-servers = ["rust-analyzer"]
 formatter = { command = "rustfmt" }
 auto-format = true
-indent = { tab-width = 4, unit = " " }
+indent = { tab-width = 4, unit = "    " }
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 [language-server.rust-analyzer.config.check]
@@ -14,18 +14,18 @@ enable = false
 [[language]]
 name = "c"
 # auto-format = true
-indent = { tab-width = 4, unit = " " }
+indent = { tab-width = 4, unit = "    " }
 # formatter = { command = "clang-format" }
 
 [[language]]
 name = "glsl"
-indent = { tab-width = 4, unit = " " }
+indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "default"
 scope = "source.default"
 comment-token = "#"
-indent = { tab-width = 2, unit = " " }
+indent = { tab-width = 2, unit = "  " }
 file-types = ["*"]
 roots = []
 auto-format = false
