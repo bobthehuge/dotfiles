@@ -1,9 +1,11 @@
+use-grammars = { only = ["c", "rust", "cpp", "glsl", "m68k", "c-sharp", "yaml", "toml", "make", "latex"] }
+
 [[language]]
 name = "rust"
 language-servers = ["rust-analyzer"]
 formatter = { command = "rustfmt" }
 auto-format = true
-indent = { tab-width = 4, unit = " " }
+indent = { tab-width = 4, unit = "    " }
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 [language-server.rust-analyzer.config.check]
@@ -13,19 +15,43 @@ enable = false
 
 [[language]]
 name = "c"
-# auto-format = true
-indent = { tab-width = 4, unit = " " }
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
 # formatter = { command = "clang-format" }
+
+[language-server]
+clangd = { command = "clangd", args = [ "--header-insertion=never" ] }
 
 [[language]]
 name = "glsl"
-indent = { tab-width = 4, unit = " " }
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "text"
+scope = "source.txt"
+file-types = ["txt"]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "m68k"
+scope = "source.m68k"
+file-types = ["m68k"]
+indent = { tab-width = 2, unit = "  " }
+comment-token = ";"
 
 [[language]]
 name = "default"
 scope = "source.default"
 comment-token = "#"
-indent = { tab-width = 2, unit = " " }
+indent = { tab-width = 2, unit = "  " }
 file-types = ["*"]
 roots = []
 auto-format = false
+
+[[grammar]]
+name = "m68k"
+source = {git="https://github.com/grahambates/tree-sitter-m68k", rev="e128454c2210c0e0c10b68fe45ddb8fee80182a3"}

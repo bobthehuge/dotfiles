@@ -1,4 +1,4 @@
-theme = "vim_dark_high_contrast"
+theme = "vim_dark_better_contrast"
 
 [editor]
 true-color = true
