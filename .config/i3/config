@@ -184,7 +184,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 bindsym $mod+F2 exec "setxkbmap us"
-bindsym $mod+F3 exec "xrandr --output HDMI-A-0 --same-as eDP"
+bindsym $mod+F3 exec "xrandr --output HDMI-A-0 --mode 1920x1080 --same-as eDP"
 bindsym XF86MonBrightnessDown exec "sudo brillo -U 5"
 bindsym XF86MonBrightnessUp exec "sudo brillo -A 5"
 bindsym $mod+Mod2+KP_0 exec "xdotool click --repeat 1000 --delay 5 1"
@@ -197,3 +197,4 @@ bar {
 
 # exec "setxkbmap fr"
 exec "pipewire &"
+exec "myrandr -p above"

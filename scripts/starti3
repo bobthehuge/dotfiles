@@ -1,0 +1,2 @@
+# Start i3
+exec dbus-run-session /usr/bin/i3

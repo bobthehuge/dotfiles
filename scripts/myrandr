@@ -1,0 +1,81 @@
+#!/bin/bash
+
+USAGE=$(cat << EndOfUsage
+Usage: setrandr -o {OUTPUT} -t {TARGET} [-p {POS} | -r {ROTATION}]
+  
+      -o   xrandr output (Default: first non primary monitor)
+      -t   xrandr target (Default: primary monitor)
+      -p   OUTPUT position from TARGET (--left-of, --same-as, ...)
+      -r   TARGET rotation
+
+EndOfUsage
+)
+
+QUERY=$(xrandr --query | grep -w connected)
+MONS=$(echo "$QUERY" | sed -E "s/ connected.*//")
+PRIMARY=$(echo "$QUERY" | grep -w primary | sed -E "s/ connected .*//")
+SECONDARY=$(echo "$QUERY" | grep -v primary | sed -E "s/ connected .*//")
+
+IFS=$'\n' read -rd '' -a MONS_LIST <<< "$MONS"
+IFS=$'\n' read -rd '' -a SECONDARY_LIST <<< "$SECONDARY"
+
+POSITIONS="same above under left right"
+ROTATIONS="normal inverted left right"
+
+while getopts ht:o:p:r: opt
+do 
+    case "${opt}" in
+        h)ERROR=" ";;
+        t)TARGET=${OPTARG};;
+        o)OUTPUT=${OPTARG};;
+        p)POS=${OPTARG};;
+        r)ROTATE=${OPTARG};;
+        *)ERROR="\nInvalid option. See usage or xrandr options";;
+    esac
+done
+
+if [ "$ERROR" ]; then
+  printf "$USAGE\n\n"
+  echo "Monitors: ${MONS_LIST[@]}"
+  printf "Primary: $PRIMARY\n"
+  printf "Positions: $POSITIONS\n"
+  printf "Rotations: $ROTATIONS\n"
+  printf "$ERROR\n"
+  exit 1
+fi
+
+if [ -z "$TARGET" ]; then
+  # echo "No target selected. Default: $PRIMARY"
+  TARGET=${PRIMARY}
+fi
+
+if [ "$ROTATE" ]; then
+  xrandr --output "$TARGET" --rotate "$ROTATE"
+  exit 0
+fi
+
+if [ -z "$SECONDARY" ]; then
+  echo "No secondary monitor available. Exiting..."
+  exit 2
+fi
+
+if [ -z "$OUTPUT" ]; then
+  # echo "No output selected. Default: $SECONDARY"
+  OUTPUT=${SECONDARY}
+fi
+
+if [ -z "$POS" ]; then
+  echo "No selected operation. Exiting..."
+  exit 1
+else
+  case "${POS}" in
+    ("above") POS="--above";;
+    ("under") POS="--under";;
+    ("left") POS="--left-of";;
+    ("right") POS="--right-of";;
+    ("same") POS="--same-as";;
+    *) echo "Invalid mode provided. Exiting..." && exit 1;;
+  esac
+  xrandr --output "$OUTPUT" --mode "1920x1080" "$POS" "$TARGET"
+fi
+

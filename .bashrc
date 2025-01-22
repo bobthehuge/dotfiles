@@ -3,7 +3,6 @@ clear
 
 PS1='\[\e[38;5;124m\]\u\[\e[0m\]@<\[\e[38;5;196m\]\w\[\e[0m\]>\\$ '
 
-export HELIX_RUNTIME=~/prog/rust/helix/runtime
 export PATH=$PATH:~/scripts/:~/prog/68k/68k_tools/:~/.local/bin:~/.nimble/bin
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/prog/68k/68k_tools/libs/
