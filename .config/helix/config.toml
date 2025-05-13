@@ -1,4 +1,5 @@
-theme = "vim_dark_better_contrast"
+# theme = "vim_dark_better_contrast"
+theme = "gruvbox_harder_dark"
 
 [editor]
 true-color = true

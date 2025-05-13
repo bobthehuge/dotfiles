@@ -1,0 +1,14 @@
+#!/bin/bash
+
+[ -z "$DBUS_SESSION_BUS_ADDRESS" ] && eval $(/usr/bin/dbus-launch --sh-syntax)
+dbus-update-activation-environment --verbose --all
+
+while true
+do
+    source ~/.config/dwm/dwmrc.sh
+    # Log stderror to a file
+    dbus-run-session dwm 2> ~/.config/dwm/dwm.log
+    # dwm 2>~/.config/dwm/dwm.log
+    # No error logging
+    #dwm >/dev/null 2>&1
+done

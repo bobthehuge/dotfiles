@@ -31,9 +31,9 @@ icons[cancel]="\Uf0156"
 
 declare -A actions
 #actions[switchuser]="???"
-actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
-actions[reboot]="sudo reboot"
-actions[shutdown]="sudo poweroff"
+actions[logout]="pkill startdwm"
+actions[reboot]="loginctl reboot"
+actions[shutdown]="loginctl poweroff"
 
 # By default, ask for confirmation for actions that are irreversible
 # confirmations=(reboot shutdown logout)
